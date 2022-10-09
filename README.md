@@ -8,6 +8,8 @@
 - 手動シャウトアウトでシャウトアウトメッセージを流します(設定でON/OFF)
 - レイドと手動SOを別々に設定できます
 - Twitchのusernameを使って `{username}.wav` という音声ファイルを入れると、その人専用の音声が流れます。
+    - デフォルト音声は `default.wav` を置き換えてください
+    - mp3は非対応、wavのみです
 
 # 使い方
 本家と同じく必要な情報を取得してください。
@@ -23,6 +25,10 @@ TWITCH_TOKEN = "oauth:xxxxxxxx" # oauth: から始まるトークン
 CLIENT_ID = "xxxxxxxx"
 ```
 5. main.exeを実行
+
+# SpecialThanks
+- [@L4yLa](https://github.com/L4yLa): 本家の開発者の方です
+- [Ribenchi](https://www.twitch.tv/ribenchi): デフォルト音声のHiの宇宙猫
 
 # License
 MIT
