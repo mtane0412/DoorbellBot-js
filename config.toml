@@ -2,8 +2,8 @@
 [botInfo]
 bot_name = "tanenobot" # Botのusername
 channel = "tanenob" # Botを送り込むTwitchチャンネル
-TWITCH_TOKEN = "oauth:xxxxx" # oauth: から始まるトークン
-CLIENT_ID = "xxxxxxxxxxxxx" # client_id
+TWITCH_TOKEN = "oauth:xxxxxxxx" # oauth: から始まるトークン
+CLIENT_ID = "xxxxxxxx"
 
 [shoutout]
 enable_shoutout = true # shoutoutコマンド時にメッセージを出すか

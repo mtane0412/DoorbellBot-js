@@ -1,4 +1,4 @@
-import tmi from 'tmi.js';
+import * as tmi from 'tmi.js';
 import * as fs from 'fs';
 import * as toml from 'toml';
 import axios from "axios";
@@ -63,7 +63,7 @@ const main = async () => {
 	// Twitch APIのvalidate
 	const clientId = await axios.get('https://id.twitch.tv/oauth2/validate', { headers: {
 		'Authorization': 'OAuth ' + config.botInfo.TWITCH_TOKEN.replace('oauth:', '')
-	}	
+	}
 	}).then(response => {
 		console.log(response.status + ' ' + response.statusText);
 		return response.data['client_id']
