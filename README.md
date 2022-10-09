@@ -7,7 +7,7 @@
 - レイドメッセージを流します(設定でON/OFF)
 - 手動シャウトアウトでシャウトアウトメッセージを流します(設定でON/OFF)
 - レイドと手動SOを別々に設定できます
-- Twitchのusernameを使って `{username}.wav` という音声ファイルを入れると、その人専用の音声が流れます。
+- Twitchのusernameを使って `{username}.wav`(例 `tanenob.wav`) という音声ファイルを入れると、その人専用の音声が流れます。
     - デフォルト音声は `default.wav` を置き換えてください
     - mp3は非対応、wavのみです
 
@@ -79,7 +79,7 @@ raid_message = """
 
 ### 音声の変更
 デフォルト音声はsoundsフォルダの`default.wav`を差し替えてください。
-soundsフォルダ内にTwitchのusernameを使って`{username}.wav`という音声を追加すると、そのユーザー専用の音声が流れます。
+soundsフォルダ内にTwitchのusernameを使って`{username}.wav`(例 `tanenob.wav`)という音声を追加すると、そのユーザー専用の音声が流れます。
 
 ### 起動
 main.exeを実行してください。
