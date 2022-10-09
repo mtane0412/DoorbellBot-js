@@ -115,6 +115,9 @@ const main = async () => {
 		// Ignore echoed messages.
 		if(self) return;
 		if(!tags.username) return;
+		const ignoreUsers:Array<string> = config.botInfo.ignore_users;
+		console.log(ignoreUsers);
+		if(ignoreUsers.includes(tags.username)) return;
 		if(!userList.has(tags.username)) {
 			// 最初のチャットのときに音を鳴らす
 			play(tags.username);

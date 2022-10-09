@@ -2,11 +2,18 @@
 [botInfo]
 bot_name = "tanenobot" # Botのusername
 channel = "tanenob" # Botを送り込むTwitchチャンネル
-TWITCH_TOKEN = "oauth:xxxxxxxx" # oauth: から始まるトークン
-CLIENT_ID = "xxxxxxxx"
+TWITCH_TOKEN = "oauth:xxxxxx" # oauth: から始まるトークン
+CLIENT_ID = "xxxxxx" # Twitch Developersで取得したclient_id
+# 無視するusernameを入れる
+ignore_users = [
+    'Nightbot',
+    'StreamElements',
+    'Streamlabs',
+    'tanenobot'
+]
 
 [shoutout]
-enable_shoutout = true # shoutoutコマンド時にメッセージを出すか
+enable_shoutout = true # shoutoutコマンド時にメッセージを出すか (true / false)
 shoutout_commands = [
     '!so',
     '!shoutout'
@@ -19,7 +26,7 @@ shoutout_message = """
 最近の配信 Recent stream : {game} - {title}
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 """
-enable_raid_shoutout = true # レイド時にメッセージを出すか
+enable_raid_shoutout = true # レイド時にメッセージを出すか  (true / false)
 raid_message = """
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 - - - - - We got raid by {username} with {viewers} viewers!  - - - - - -
@@ -31,14 +38,6 @@ raid_message = """
 # メッセージの変数
 # username: Twitchのアルファベットのユーザーネーム(例. 「tanenob」)
 # displayName: Twitchの表示名(例. 「たねのぶ」)
-# game: Raiderのゲームカテゴリ (例. 「Pogostuck: Rage With Your Friends」)
-# title: Riaderの配信タイトル (例. 「ポゴ楽しい」)
-# viewers: レイド時の人数
-
-# 無視するusernameを入れる
-ignore_users= [
-    'Nightbot',
-    'StreamElements',
-    'Streamlabs',
-    'tanenobot'
-]
+# game: 【レイド限定】Raiderのゲームカテゴリ (例. 「Pogostuck: Rage With Your Friends」)
+# title: 【レイド限定】Riaderの配信タイトル (例. 「ポゴ楽しい」)
+# viewers: 【レイド限定】レイド時の人数
