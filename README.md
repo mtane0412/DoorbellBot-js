@@ -77,6 +77,10 @@ raid_message = """
 - `{title}`: 【レイド限定】Riaderの配信タイトル (例. 「ポゴ楽しい」)
 - `{viewers}`: 【レイド限定】レイド時の人数
 
+### 音声の変更
+デフォルト音声はsoundsフォルダの`default.wav`を差し替えてください。
+soundsフォルダ内にTwitchのusernameを使って`{username}.wav`という音声を追加すると、そのユーザー専用の音声が流れます。
+
 ### 起動
 main.exeを実行してください。
 
