@@ -9,7 +9,7 @@ const config = toml.parse(fs.readFileSync('./config.toml', 'utf8'));
 const userList:Set<string> = new Set();
 
 // サウンド再生
-const play = (username:string) => {
+const doorbellPlay = (username:string) => {
     const path = fs.existsSync(`./sounds/${username}.wav`) ? `./sounds/${username}.wav` : './sounds/default.wav';
     player.play({path: path})
     .then(() => {
@@ -18,6 +18,19 @@ const play = (username:string) => {
         console.error(error);
     });
 };
+
+const play = (filename:string) => {
+    const isWav:boolean = filename.endsWith('.wav');
+	if (!isWav) return; // wavファイル以外は再生しない
+	const filePath =  `./sounds/${filename}`;
+	if(!fs.existsSync(filePath)) return; // wavファイルが存在しなければ再生しない
+	player.play({path: filePath})
+	.then(() => {
+		console.log('play: ' + filePath);
+	}).catch((error:unknown) => {
+		console.error(error);
+	});
+}
 
 type UserInfo = {
 	broadcaster_type: string // User’s broadcaster type: "partner", "affiliate", or "".
@@ -104,6 +117,7 @@ const main = async () => {
 
 	client.on("raided", async (channel:string, username:string, displayName:string, viewers:number) => {
 		if (config.shoutout.enable_raid_shoutout) {
+			if (config.shoutout.enable_raid_sound) play('raid.wav');
 			const broadcasterId:string = await (await getUserInfoByUsername(username)).id;
 			const channelInfo:ChannelInfo = await getChannelInfoById(broadcasterId);
 			const shoutoutMessage = replaceVariables(config.shoutout.raid_message, channelInfo, viewers);
@@ -119,14 +133,14 @@ const main = async () => {
 		if(ignoreUsers.includes(tags.username)) return;
 		if(!userList.has(tags.username)) {
 			// 最初のチャットのときに音を鳴らす
-			play(tags.username);
+			doorbellPlay(tags.username);
 			userList.add(tags.username);
 		}
 
 		// command処理
 		if(message.startsWith('!')) {
 			const [command, ...args]:Array<string> = message.split(' ');
-			if(config.shoutout.enable_shoutout && config.shoutout.shoutout_commands.includes(command.toLowerCase())){
+			if(config.shoutout.enable_shoutout && config.shoutout.shoutout_commands.includes(command.toLowerCase()) && tags.mod){
 				const broadcasterId:string = await (await getUserInfoByUsername(args[0])).id;
 				const channelInfo:ChannelInfo = await getChannelInfoById(broadcasterId);
 				const shoutoutMessage = replaceVariables(config.shoutout.shoutout_message, channelInfo);

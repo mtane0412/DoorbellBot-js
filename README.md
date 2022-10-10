@@ -46,6 +46,7 @@ shout outセクションで、レイド時のメッセージと手動シャウ�
 オンにするときは `true` を、オフにするときは `false` を入力してください。
 ```
 enable_shoutout = true # shoutoutコマンド時にメッセージを出すか (true / false)
+enable_raid_sound = false # レイド時に音声(sounds/raid.wav)を出すか  (true / false)
 enable_raid_shoutout = true # レイド時にメッセージを出すか  (true / false)
 ```
 
@@ -77,8 +78,10 @@ raid_message = """
 - `{title}`: 【レイド限定】Riaderの配信タイトル (例. 「ポゴ楽しい」)
 - `{viewers}`: 【レイド限定】レイド時の人数
 
-### 音声の変更
-デフォルト音声はsoundsフォルダの`default.wav`を差し替えてください。
+### 音声の追加
+音声は `sounds/`フォルダ以下に配置します。
+最初のチャット時に鳴らすデフォルト音声は`default.wav`を置いてください。
+レイド時に音声を鳴らす場合は `raid.wav`を置いてください。
 soundsフォルダ内にTwitchのusernameを使って`{username}.wav`(例 `tanenob.wav`)という音声を追加すると、そのユーザー専用の音声が流れます。
 
 ### 起動
@@ -86,7 +89,6 @@ main.exeを実行してください。
 
 ## Special Thanks
 - [@L4yLa](https://github.com/L4yLa): 本家の開発者の方です
-- [Ribenchi](https://www.twitch.tv/ribenchi): デフォルト音声のHiの宇宙猫
 
 ## License
 MIT

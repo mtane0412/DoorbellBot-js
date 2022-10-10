@@ -27,6 +27,7 @@ shoutout_message = """
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 """
 enable_raid_shoutout = true # レイド時にメッセージを出すか  (true / false)
+enable_raid_sound = false # レイド時に音声(sounds/raid.wav)を出すか  (true / false)
 raid_message = """
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 - - - - - We got raid by {username} with {viewers} viewers!  - - - - - -
