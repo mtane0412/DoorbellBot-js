@@ -1,5 +1,5 @@
 # DoorbellBot.js
-@L4yLa の[DoorbellBot](https://github.com/L4yLa/TwitchBots/tree/main/DoorbellBot)のNode.js移植版です。
+[@L4yLa](https://github.com/L4yLa)の[DoorbellBot](https://github.com/L4yLa/TwitchBots/tree/main/DoorbellBot)のNode.js移植版です。
 サポートを求められることが多くなってきたり、本家の機能追加とか相談されることも増えてきたので自分でいじれるようにしました。
 
 ## 機能
@@ -60,7 +60,7 @@ shoutout_commands = [
 ```
 
 shoutoutコマンドが可能なユーザー
-`broadcaster`, `moderator`, `subscriber`, `vip`からシャウトアウトコマンドが使用できる役職を追加してください
+`broadcaster`, `moderator`, `subscriber`, `vip`からシャウトアウトコマンドが使用できる役職を追加してください。
 `everyone`は全ユーザーがシャウトアウト可能になります。
 ```
 user_levels = [
@@ -92,10 +92,13 @@ raid_message = """
 - `{viewers}`: 【レイド限定】レイド時の人数
 
 ### 音声の追加
-音声は `sounds/`フォルダ以下に配置します。
-最初のチャット時に鳴らすデフォルト音声は`default.wav`を置いてください。
-レイド時に音声を鳴らす場合は `raid.wav`を置いてください。
-soundsフォルダ内にTwitchのusernameを使って`{username}.wav`(例 `tanenob.wav`)という音声を追加すると、そのユーザー専用の音声が流れます。
+音声は `sounds/`フォルダ以下に配置します。音声はwavのみで、mp3等は非対応です。
+
+配置する音声は3種類です。
+
+- `default.wav`: 最初のチャット時に鳴らすデフォルト音声
+- `raid.wav`: レイド時に鳴らす音声
+- `{username}.wav`: usernameを使ったwavファイルを配置すると、そのユーザーの最初のチャット時にその音声が流れます。(例 `tanenob.wav`)
 
 ### 起動
 main.exeを実行してください。
