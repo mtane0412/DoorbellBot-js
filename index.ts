@@ -6,6 +6,7 @@ const player = require('node-wav-player');
 
 
 const config = toml.parse(fs.readFileSync('./config.toml', 'utf8'));
+console.log(config);
 const userList:Set<string> = new Set();
 
 // サウンド再生
@@ -140,8 +141,19 @@ const main = async () => {
 		// command処理
 		if(message.startsWith('!')) {
 			const [command, ...args]:Array<string> = message.split(' ');
-			if(config.shoutout.enable_shoutout && config.shoutout.shoutout_commands.includes(command.toLowerCase()) && tags.mod){
-				const broadcasterId:string = await (await getUserInfoByUsername(args[0])).id;
+			if(config.shoutout.enable_shoutout && config.shoutout.shoutout_commands.includes(command.toLowerCase())){
+				
+				// シャウトアウトができないユーザーレベルは弾く
+				let isShoutoutUser:boolean = false;
+				for (const badge in tags.badges) {
+					if(config.shoutout.user_levels.includes(badge)) isShoutoutUser = true;
+				}
+				if (!isShoutoutUser && !config.shoutout.user_levels.includes('everyone')){
+					console.log('shoutout not allowed')
+					return;
+				}
+
+				const broadcasterId:string = (await getUserInfoByUsername(args[0])).id;
 				const channelInfo:ChannelInfo = await getChannelInfoById(broadcasterId);
 				const shoutoutMessage = replaceVariables(config.shoutout.shoutout_message, channelInfo);
 				client.say(channel, shoutoutMessage);

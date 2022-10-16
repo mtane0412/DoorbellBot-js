@@ -4,6 +4,7 @@ bot_name = "tanenobot" # Botのusername
 channel = "tanenob" # Botを送り込むTwitchチャンネル
 TWITCH_TOKEN = "oauth:xxxxxx" # oauth: から始まるトークン
 CLIENT_ID = "xxxxxx" # Twitch Developersで取得したclient_id
+
 # 無視するusernameを入れる
 ignore_users = [
     'Nightbot',
@@ -14,10 +15,23 @@ ignore_users = [
 
 [shoutout]
 enable_shoutout = true # shoutoutコマンド時にメッセージを出すか (true / false)
+
+# shoutoutコマンドが可能なユーザー broadcaster, moderator, subscriber, vip, everyone
+user_levels = [
+    'broadcaster',
+    'moderator',
+    # 'subscriber',
+    # 'vip',
+    # 'everyone'
+]
+
+# shoutoutコマンド(!から始めてください)
 shoutout_commands = [
     '!so',
     '!shoutout'
 ]
+
+# shoutoutメッセージ
 shoutout_message = """
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 - - - - - Please check this awesome streamer!! - - - - - -
@@ -26,8 +40,14 @@ shoutout_message = """
 最近の配信 Recent stream : {game} - {title}
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 """
-enable_raid_shoutout = true # レイド時にメッセージを出すか  (true / false)
-enable_raid_sound = false # レイド時に音声(sounds/raid.wav)を出すか  (true / false)
+
+ # レイド時にメッセージを出すか  (true / false)
+enable_raid_shoutout = true
+
+ # レイド時に音声(sounds/raid.wav)を出すか  (true / false)
+enable_raid_sound = false
+
+# レイド時のメッセージ
 raid_message = """
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 - - - - - We got raid by {username} with {viewers} viewers!  - - - - - -
@@ -36,6 +56,8 @@ raid_message = """
 最近の配信 Recent stream : {game} - {title}
 §=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§=§
 """
+
+
 # メッセージの変数
 # username: Twitchのアルファベットのユーザーネーム(例. 「tanenob」)
 # displayName: Twitchの表示名(例. 「たねのぶ」)

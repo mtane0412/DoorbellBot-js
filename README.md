@@ -59,6 +59,19 @@ shoutout_commands = [
 ]
 ```
 
+shoutoutコマンドが可能なユーザー
+`broadcaster`, `moderator`, `subscriber`, `vip`からシャウトアウトコマンドが使用できる役職を追加してください
+`everyone`は全ユーザーがシャウトアウト可能になります。
+```
+user_levels = [
+    'broadcaster',
+    'moderator',
+    # 'subscriber',
+    # 'vip',
+    # 'everyone'
+]
+```
+
 シャウトアウトやレイドメッセージは `"""`の間に記入してください。改行は半角スペースに変換されて、メッセージ全体は一行で送信されます。
 
 ```
